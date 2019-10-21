@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BankViewModel>
+
+@{
+  ViewData["Title"] = "Home Page";
+}
+
+  <div>
+
+    <h1 class="display-4">Ally Rate Information</h1>
+
+    <table class="table table-sm table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Rating</th>
+          <th>Total Assets</th>
+          <th>Limit</th>
+          <th>Entry Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+          <td>
+            <p>@item.Bank.Name</p>
+          </td>
+          <td>
+            <p>@item.Rating.BankRating</p>
+          </td>
+          <td>
+            <p>@String.Format("{0:C0}", item.Asset.TotalAssets)</p>
+          </td>
+          <td>
+            <p>@String.Format("{0:C0}", item.Limit.BankLimit)</p>
+          </td>
+          <td>
+            <p>@String.Format("{0:d}", item.Limit.EntryDate)</p>
+          </td>
+        </tr>
+        }
+
+      </tbody>
+    </table>
+
+  </div>
